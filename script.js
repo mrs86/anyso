@@ -59,9 +59,58 @@ document.querySelector('.camera-button').addEventListener('click', function() {
     alert('相机搜索功能已触发\n这是一个模拟功能，实际项目中会调用图像识别API');
 });
 
+<<<<<<< HEAD
+// 应用菜单功能
+let appMenuVisible = false;
+
+function toggleAppMenu() {
+    const appMenu = document.getElementById('appMenu');
+    appMenuVisible = !appMenuVisible;
+    if (appMenuVisible) {
+        appMenu.classList.add('show');
+    } else {
+        appMenu.classList.remove('show');
+    }
+}
+
+// 点击应用项的处理函数
+function openApp(appName) {
+    console.log('打开应用:', appName);
+    alert('您点击了' + getAppName(appName) + '应用\n这是一个模拟功能，实际项目中会打开相应的应用');
+    // 关闭菜单
+    toggleAppMenu();
+}
+
+// 获取应用名称
+function getAppName(appName) {
+    const appNames = {
+        'search': '搜索',
+        'images': '图片',
+        'news': '新闻',
+        'maps': '地图',
+        'videos': '视频',
+        'translate': '翻译',
+        'gmail': '邮件',
+        'more': '更多'
+    };
+    return appNames[appName] || appName;
+}
+
+// 点击页面其他地方关闭菜单
+document.addEventListener('click', function(event) {
+    const appMenuContainer = document.querySelector('.app-menu-container');
+    if (appMenuContainer && !appMenuContainer.contains(event.target)) {
+        const appMenu = document.getElementById('appMenu');
+        if (appMenu.classList.contains('show')) {
+            appMenu.classList.remove('show');
+            appMenuVisible = false;
+        }
+    }
+=======
 // 应用按钮功能（模拟）
 document.querySelector('.app-button').addEventListener('click', function() {
     alert('应用菜单已打开\n这是一个模拟功能，实际项目中会显示应用列表');
+>>>>>>> 80492ad746b009d4b40a7d07d7d18aaf30442bb6
 });
 
 // 导航链接功能（模拟）
